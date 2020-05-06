@@ -54,8 +54,8 @@ function transponer(matriz){
 
 function determinante(matriz){
     var det = 0;     
-    if(matriz.length == 1)   {
-        det = matriz[0][0];
+    if(!isNaN(matriz)){
+        det = matriz;
     }
     else if(matriz.length == 2){
         det = matriz[0][0]*matriz[1][1] - matriz[0][1]*matriz[1][0];
@@ -72,33 +72,34 @@ function cofactor(matriz, posI, posJ){
     var cF = 0;
     var cC = 0;
     var nMatriz = new Array(matriz.length - 1);
+    var d = 0;
     var confactor = 0;
-    if(matriz.length > 2){
-            for(var i = 0; i < matriz.length; i++){                                
+    if(matriz.length > 2){        
+            for(var i = 0; i < matriz.length; i++){                  
                     nMatriz[cF] = new Array(matriz[i].length - 1);
-                for(var j = 0; j < matriz[0].length; j++){
-                    if(!(i == posI) && !(j == posJ)){
-                        nMatriz[cF][cC] = matriz[i][j];                       
+                for(var j = 0; j < matriz.length; j++){                    
+                    if((i != posI) && (j != posJ)){                        
                         cC++;
-                        if(cC == nMatriz[cF].length){
+                        if(cC == nMatriz.length){
                             cC = 0;
                             cF++;
                         }                        
                     }                    
                 }
-            }             
+            }                
+            confactor = Math.pow(-1, 2 + posI + posJ)*determinante(nMatriz)
     }
     else{
         for(var i = 0; i < matriz.length; i++){                                            
             for(var j = 0; j < matriz[0].length; j++){
-                if(!(i == posI) && !(j == posJ)){
-                    nMatriz[0] = matriz[i][j];                                   
+                if(i != posI && j != posJ){
+                 d = matriz[i][j];                         
                 }                    
             }
         }             
-        
+        confactor = Math.pow(-1, 2 + posI + posJ)*d;
     }        
-            confactor = Math.pow(-1, 2 + posI + posJ)*determinante(nMatriz)
+            
             return confactor;
 }
 
@@ -115,7 +116,7 @@ function adjunta(matriz){
 }
 
 function inversa(matriz){
-    var det = determinante(matriz);
+    var det = determinante(matriz)%43;
     var mAdjunta = adjunta(matriz);
     var mInversa = new Array();
     for(var i = 0; i < matriz.length; i++){        
