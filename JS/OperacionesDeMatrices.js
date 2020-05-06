@@ -30,7 +30,7 @@ function multiplicar(matriz1, matriz2){
             for(y = 0; y < matriz1[0].length; y++){
                 if(!isNaN(matriz1[x][y]) && !isNaN(matriz2[y][z])){
                 v += matriz1[x][y]*matriz2[y][z];   
-                v = v%43;            
+                v = Math.abs(v)%43;            
                 }
             }            
             matrizFinal[x][z] = v;
@@ -60,6 +60,11 @@ function determinante(matriz){
     else if(matriz.length == 2){
         det = matriz[0][0]*matriz[1][1] - matriz[0][1]*matriz[1][0];
     }
+    else if(matriz.length == 3){
+        det = matriz[0][0]*matriz[1][1]*matriz[2][2]+matriz[0][1]*matriz[1][2]*matriz[2][0]
+        +matriz[0][2]*matriz[1][0]*matriz[2][1]-matriz[0][2]*matriz[1][1]*matriz[2][0]
+        -matriz[0][0]*matriz[1][2]*matriz[2][1]-matriz[0][1]*matriz[1][0]*matriz[2][2];
+    }
     else{
         for(var j = 0; j < matriz[0].length; j++){            
             det += matriz[0][j]*cofactor(matriz, 0, j)
@@ -70,24 +75,29 @@ function determinante(matriz){
 
 function cofactor(matriz, posI, posJ){
     var cF = 0;
-    var cC = 0;
+    var cC = 0;    
     var nMatriz = new Array(matriz.length - 1);
+    var fila = new Array();
     var d = 0;
+    //Crear arreglo para guardar datos y al final agregar al arreglo nMatriz
     var confactor = 0;
     if(matriz.length > 2){        
             for(var i = 0; i < matriz.length; i++){                  
-                    nMatriz[cF] = new Array(matriz[i].length - 1);
-                for(var j = 0; j < matriz.length; j++){                    
-                    if((i != posI) && (j != posJ)){                        
+                cC = 0;                
+                for(var j = 0; j < matriz.length; j++){                                        
+                    if(i != posI && j != posJ){                                 
+                        fila[cC]= matriz[i][j];                        
                         cC++;
-                        if(cC == nMatriz.length){
+                        if(cC == nMatriz.length){                                                        
                             cC = 0;
+                            nMatriz[cF] = fila;
+                            fila = new Array();
                             cF++;
                         }                        
                     }                    
                 }
-            }                
-            confactor = Math.pow(-1, 2 + posI + posJ)*determinante(nMatriz)
+            }                            
+            confactor = Math.pow(-1, 2 + posI + posJ)*determinante(nMatriz)            
     }
     else{
         for(var i = 0; i < matriz.length; i++){                                            
@@ -116,13 +126,18 @@ function adjunta(matriz){
 }
 
 function inversa(matriz){
-    var det = determinante(matriz)%43;
+    var det = Math.abs(determinante(matriz));
+    var x = 1;
+    while((det*x-1)%43 != 0){
+        x++;
+    }
+    console.log(x);
     var mAdjunta = adjunta(matriz);
     var mInversa = new Array();
     for(var i = 0; i < matriz.length; i++){        
         mInversa[i] = new Array();
         for(var j = 0; j < matriz[i].length; j++){
-           mInversa[i][j] = mAdjunta[i][j]/det;
+           mInversa[i][j] = mAdjunta[i][j]*x;
         }   
     }
     return mInversa;
