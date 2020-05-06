@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8;charset=iso-8859-2"/>
 
+        <link rel="icon" type="image/png" href=https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Friosuerte.files.wordpress.com%2F2013%2F03%2Flogo-usac-lents.png&f=1&nofb=1> 
+        
         <title> CryptoMatrix </title>
 
         <link rel="stylesheet" type="text/css" href="CSS/Estilo_Index.css"/>
@@ -18,7 +20,6 @@
             <div class= "title">
                 <h1> <strong> CryptoMatrix </strong> </h1>
             </div>
-
             <nav>
                 <ul>
                     <li> <a href=IndexCrypto.html> Inicio </a> </li>
@@ -32,7 +33,10 @@
         <section class="main">
             <section class="articles">
                 <article>
+
                     <h2>    Criptografía Matricial   </h2>
+
+                        <hr/>
 
                     <h3> <br/> <strong> Criptografía </strong></h3>
 
@@ -40,9 +44,62 @@
                         <br/>
                         La criptografía es utilizada en muchos ambitos laborales, regularmente en el mundo de la informatica,
                         ya que se necesita enviar mensajes encriptados que sean dificìles de desencriptar por personas a las que
-                        no se les quiere dar informacion, pero que sí sea recibida por las personas c
-
+                        no se les quiere dar informacion, pero que sí sea recibida por las personas correspondientes. Si bien es cierto que hay muchas formas de encriptar; en muchos de los casos se utiliza el álgebra de matrices para poder hacerlo.
+                        <br/>
+                        A continuacion se dará un ejemplo efectivo utilizando una matriz cuadrada.
                     </p>
+
+                    <br/> <h3> Encriptacion de mensaje </h3>
+                    <p>
+                        <br/> Se debe escojer una matriz que tenga inversa, esta debe ser conocida por las personas que envian el mensaje y por las
+                        personas que reciben el mensaje. Ademas, se debe utilizar una nomenclatura estandar para traducir las letras a numeros
+                        y utilizarlas en la matriz. <br/>
+
+                        <img src=https://scontent.fgua3-1.fna.fbcdn.net/v/t1.15752-9/96286647_2681153585457353_8499733089008746496_n.jpg?_nc_cat=111&_nc_sid=b96e70&_nc_ohc=73NsYteSJ0kAX9BabOE&_nc_ht=scontent.fgua3-1.fna&oh=f1bc63108e9249f27dd4c04a234b320b&oe=5ED9A635 width="800"> <br/>
+
+                        <strong> Ejemplo: </strong> Suponga desea encriptar el mensaje <strong><i> "Mejor que de nuestro jucio, debemos fiarnos del calculo algebraico." </i> </strong>; ahora que ya se tiene el mensaje, se deberá reemplazar cada letra del mensaje por el numero que le corresponde en la nomenclatura propuesta.
+                    </p>
+
+                    <p> 
+                        <br/> Para este caso tenemos los siguientes numeros: 13, 5, 10, 19, 0, 18, 22, 5, 0, 4, 5, 0, 14, 22,5, 20, 21, 19, 16, 0, 10, 22, 9, 3, 9, 16, 28, 0, 4, 5, 2, 5, 13, 16, 20, 0, 16, 9, 1, 19, 14, 16, 20, 0, 4, 5, 12, 0, 3, 29, 12, 3, 22, 12, 16, 0, 1, 12, 7, 5, 2, 19, 1, 9, 3, 16, 27.
+                    </p>
+
+                    <p>
+                        <br/> La lista de números obtenida debe ser ordenada como una matriz de cuatro filas y las columnas que sean necesarias, colocando los numeros en mismo orden del listado, de esta manera: <br/>
+                        <img src="https://scontent-mia3-2.xx.fbcdn.net/v/t1.15752-9/96375834_685127712318676_3845221955967909888_n.jpg?_nc_cat=109&_nc_sid=b96e70&_nc_ohc=VHi3Lz9-nVoAX83OZ5i&_nc_ht=scontent-mia3-2.xx&oh=dc17240c9d16cbce4cd853f0bddda457&oe=5ED6D4BF">
+                    </p>
+
+                        <br/>La matriz anterior será multiplicada por la izquierda por <strong>M</strong> en este caso: <br/> 
+
+                        <img src="https://scontent.fgua3-2.fna.fbcdn.net/v/t1.15752-9/96021805_278303353208842_3831853861669175296_n.jpg?_nc_cat=103&_nc_sid=b96e70&_nc_ohc=LbAGxsNr54MAX8oIlRg&_nc_ht=scontent.fgua3-2.fna&oh=da6e53106cc4088e599e0e296e5ea66b&oe=5ED6DB34" width="200">
+                        
+                        <br/> por lo que el producto a realizar es: <br/>
+                        <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/96245511_229744851788722_2681135984522821632_n.jpg?_nc_cat=106&_nc_sid=b96e70&_nc_ohc=I2CY0AW-tCgAX-GQ93b&_nc_ad=z-m&_nc_cid=0&_nc_zor=9&_nc_ht=scontent.xx&oh=ea333f904d45c60b11b47531b34c1417&oe=5ED8D54B" width="800">
+
+                        <br/> Al realizar el producto nos queda el mensaje encriptado. <br/>
+                        <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/96141341_590178264970602_847354230971826176_n.jpg?_nc_cat=101&_nc_sid=b96e70&_nc_ohc=7cQPe5sKGRIAX84iXQj&_nc_ad=z-m&_nc_cid=0&_nc_zor=9&_nc_ht=scontent.xx&oh=e5d1fb7d3c4418dee7bed26c23679105&oe=5ED64CFA" width="800">
+
+                        <br/> Finalmente esta matríz será enviada como un simple listado de numeros sin nunguna relación aparente. 
+
+                        <br/>147, 146, 64, 58, 100, 49, 132, 110, 110, 137, 62, 44, 34, 93, 29, 46, 218, 26, 18, 32, -6, 11, 43,
+                        -1, -8, 2, 12, 56, -4, 3, -2, 4, 7, -3, 109, 48, 122, 100, 134, 22, 84, 127, 50, 31, 50, 77, 7, 88,
+                        99, 73, 174, 36, 29, 16, 40, 43, -20, 48, 59, 35, 29, -22, 32, 7, 42, 23, 22, 92. <br/>
+
+                        <br/> 
+
+                        <h3> Desencriptacion de Mensaje </h3>
+                        <p> <br/>
+                            Para desencriptar el mensaje, el receptor debe armar la matriz a partir de los datos recibidos (en este caso una matriz de 4 por 17 formando filas al ir ingresando los datos) y multiplicarla por <strong>M inversa</strong> siempre por la izquierda, donde: <br/>
+                        </p>
+                            <img src="https://scontent.fgua3-1.fna.fbcdn.net/v/t1.15752-9/96087300_2939411672803738_3583818697166290944_n.png?_nc_cat=102&_nc_sid=b96e70&_nc_ohc=RZdqhj9tbQAAX8S11zJ&_nc_ht=scontent.fgua3-1.fna&oh=21e9aa81d2de0850afa4ef07ad74b38c&oe=5ED6F16F">
+
+                            <br/> por lo que el producto a realizar es: <br/>
+                            <img src="https://scontent.fgua3-2.fna.fbcdn.net/v/t1.15752-9/96005016_531317987553537_3518085949277863936_n.png?_nc_cat=104&_nc_sid=b96e70&_nc_ohc=L9Bq1VkQ7cgAX9r9OZu&_nc_ht=scontent.fgua3-2.fna&oh=952c8632477086109cff5e735ce5364a&oe=5ED8DD63">
+                        
+                        <p> 
+                            Al realizar este producto se obtiene como resultado, el mensaje (en este caso, el mensaje que se encriptó al inicio): <br/>
+                            <img src="https://scontent.fgua3-2.fna.fbcdn.net/v/t1.15752-9/96251300_269472034085566_2643943264251543552_n.png?_nc_cat=104&_nc_sid=b96e70&_nc_ohc=zpNYSrXQCoUAX8wvzPM&_nc_ht=scontent.fgua3-2.fna&oh=ff12de957c9002a3d84c0bf54df53031&oe=5ED8D4FB">
+                        </p>
                 </article>
             </section>
         </section>

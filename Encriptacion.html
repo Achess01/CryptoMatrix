@@ -3,6 +3,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
+        <link rel="icon" type="image/png" href=https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Friosuerte.files.wordpress.com%2F2013%2F03%2Flogo-usac-lents.png&f=1&nofb=1>
+
         <title> CryptoMatrix </title>
 
         <link rel="stylesheet" type="text/css" href="CSS/Estilo_Encriptacion.css"/>
@@ -11,14 +13,15 @@
     <body>
 
     	<header>
-    		<div class="logo">
-            	<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Friosuerte.files.wordpress.com%2F2013%2F03%2Flogo-usac-lents.png&f=1&nofb=1"
-            	width="100">
-        	</div>
+    		
+                <div class="logo">
+            	   <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Friosuerte.files.wordpress.com%2F2013%2F03%2Flogo-usac-lents.png&f=1&nofb=1"
+            	   width="100">
+        	   </div>
 
-        	<div class="title">
-            	<h1> <strong> CryptoMatrix </strong> </h1>
-        	</div>
+        	   <div class="title">
+                	<h1> <strong> CryptoMatrix </strong> </h1>
+            	</div>
 
     	    <nav>
 	            <ul>
@@ -32,19 +35,29 @@
     	</header>
 
     	<section class="main">
+    			<!-- Seccion encriptacion -->
+                <div class="Encriptacion">
+                    
+                    <div class="Mensaje">
+                    
+                        <label for="Mensaje"> Inserte el mensaje </label>
+                    
+                    </div>
+                    
+                    <textarea name="Mensaje" class="MensajeCajon" cols="30" rows="10"></textarea>
+                    
+                    <div class="Llave">
 
-    		<section class="articles">
-    			<!-- Trabaja aca la encriptacion -->
-                <div id="Encriptacion">
-                    <label for="Mensaje">Inserte el mensaje</label>
-                    <textarea name="Mensaje" id="Mensaje" cols="30" rows="10"></textarea>
-                    <label for="Llave">Inserte la llave</label>
-                    <textarea name="Llave" id="Llave" cols="20" rows="12"></textarea>
-                    <button id="Botoncito">Listo</button>
-                    <div id="Mensaje_encriptado"></div>
-                </div>        
+                        <label for="Llave"> Inserte la llave </label>
+                    
+                    </div>
+                        
+                        <textarea name="Llave" class="LlaveCajon" cols="30" rows="10"></textarea>
+                    
+                    
+                    <button class="Botoncito"> Listo </button>
+                </div>
     			<!-- Fin seccion Principal-->
-    		</section>
     	</section>
 
     	<footer>
