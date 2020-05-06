@@ -20,6 +20,7 @@ m1[1] = [6, 3];
 
 console.log(determinante(m2));
 */
+
 function multiplicar(matriz1, matriz2){
     var matrizFinal = new Array();    
     for(var x = 0; x < matriz1.length; x++){                
@@ -44,10 +45,11 @@ function transponer(matriz){
     var matrizFinal = new Array();
     for(var x = 0; x < matriz.length; x++){
         matrizFinal[x] = new Array();
-        for(var y = 0; y = matriz[x].length; y++){
-            matriz[x][y] = matriz[y][x];
+        for(var y = 0; y < matriz[x].length; y++){
+            matrizFinal[x][y] = matriz[y][x];
         }
     }
+    return matrizFinal;
 }
 
 function determinante(matriz){
@@ -55,7 +57,7 @@ function determinante(matriz){
     if(matriz.length == 1)   {
         det = matriz[0][0];
     }
-    if(matriz.length == 2){
+    else if(matriz.length == 2){
         det = matriz[0][0]*matriz[1][1] - matriz[0][1]*matriz[1][0];
     }
     else{
@@ -71,7 +73,7 @@ function cofactor(matriz, posI, posJ){
     var cC = 0;
     var nMatriz = new Array(matriz.length - 1);
     var confactor = 0;
-    
+    if(matriz.length > 2){
             for(var i = 0; i < matriz.length; i++){                                
                     nMatriz[cF] = new Array(matriz[i].length - 1);
                 for(var j = 0; j < matriz[0].length; j++){
@@ -84,7 +86,43 @@ function cofactor(matriz, posI, posJ){
                         }                        
                     }                    
                 }
-            }            
+            }             
+    }
+    else{
+        for(var i = 0; i < matriz.length; i++){                                            
+            for(var j = 0; j < matriz[0].length; j++){
+                if(!(i == posI) && !(j == posJ)){
+                    nMatriz[0] = matriz[i][j];                                   
+                }                    
+            }
+        }             
+        
+    }        
             confactor = Math.pow(-1, 2 + posI + posJ)*determinante(nMatriz)
             return confactor;
+}
+
+function adjunta(matriz){
+    var matrizFinal = new Array();
+    for(var i = 0; i < matriz.length; i++){
+        matrizFinal[i] = new Array();
+        for(var j = 0; j < matriz[i].length; j++){
+           matrizFinal[i][j] = cofactor(matriz, i, j);
+        }   
+    }
+    matrizFinal = transponer(matrizFinal);
+    return matrizFinal;
+}
+
+function inversa(matriz){
+    var det = determinante(matriz);
+    var mAdjunta = adjunta(matriz);
+    var mInversa = new Array();
+    for(var i = 0; i < matriz.length; i++){        
+        mInversa[i] = new Array();
+        for(var j = 0; j < matriz[i].length; j++){
+           mInversa[i][j] = mAdjunta[i][j]/det;
+        }   
+    }
+    return mInversa;
 }
