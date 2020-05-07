@@ -4,9 +4,9 @@ const mensajeDesencriptado = document.getElementById("Mensaje_desencriptado");
 const boton = document.getElementById("Botoncito");
 var mensaje;
 var textoLlave;
-var valores = new Array(4);
+var valores = new Array();
 var llave = new Array();
-const listado = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+const listado = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ. ";
 
 boton.addEventListener("click", () => {    
     textoLlave = contenedorLlave.value.split(",");
@@ -16,7 +16,7 @@ boton.addEventListener("click", () => {
     var comprobar = comprobarLlave(textoLlave);        
     if(comprobar == 1){
             var det = determinante(llave);
-        if(det == 0 || det == 43){
+        if(det <= 0 || det == 29 ){
                 alert("Escoja otra llave");
         }
         else{
@@ -35,7 +35,7 @@ boton.addEventListener("click", () => {
                 for(var j = 0; j < columnas; j++){
                     valores[i][j] = busqueda(mensaje.charAt(contador));
                     if(isNaN(valores[i][j])){
-                        valores[i][j] = 34;
+                        valores[i][j] = 27;
                     }
                     contador++;
                 }
