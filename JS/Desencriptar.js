@@ -1,12 +1,13 @@
 const contenedorMensaje = document.getElementById("Mensaje");
 const contenedorLlave = document.getElementById("Llave");
-const mensajeEncriptado = document.getElementById("Mensaje_encriptado");
+const mensajeDesencriptado = document.getElementById("Mensaje_desencriptado");
 const boton = document.getElementById("Botoncito");
 var mensaje;
 var textoLlave;
 var valores = new Array();
 var llave = new Array();
 const listado = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ. ";
+
 boton.addEventListener("click", () => {    
     textoLlave = contenedorLlave.value.split(",");
     for(var x = 0; x < textoLlave.length; x++){
@@ -15,10 +16,11 @@ boton.addEventListener("click", () => {
     var comprobar = comprobarLlave(textoLlave);        
     if(comprobar == 1){
             var det = determinante(llave);
-        if(det <= 0 || det == 29){
+        if(det <= 0 || det == 29 ){
                 alert("Escoja otra llave");
         }
         else{
+            llave = inversa(llave);
             mensaje = contenedorMensaje.value;
             /* cantidadE = mensaje.length%llave.length;        
             for(var x = 0; x < cantidadE; x++){
@@ -51,15 +53,15 @@ boton.addEventListener("click", () => {
 });
 
 function mostrarEncriptado(k, v){
-    var mE = encriptar(k, v);    
-    mE = transponer(mE);
+    var mE = encriptar(k, v);
+    mE = transponer(mE)    
     var text = "";
     for(var i = 0; i < mE.length; i++){
         for(var j = 0; j < mE[i].length; j++){
                 text += listado[mE[i][j]];                        
         }   
     }
-    mensajeEncriptado.innerHTML = '<p>'+text+'</p>';
+    mensajeDesencriptado.innerHTML = '<p>'+text+'</p>';
 }
 
 function busqueda(letra){
@@ -107,4 +109,3 @@ function comprobarLlave(texto){
     }
     
 }
-
