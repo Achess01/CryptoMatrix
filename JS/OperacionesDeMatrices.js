@@ -21,8 +21,14 @@ m1[1] = [6, 3];
 console.log(determinante(m2));
 */
 
+function encriptar(matriz1, matriz2){
+    matriz2 = transponer(matriz2);
+    return multiplicar(matriz1,matriz2);
+}
+
 function multiplicar(matriz1, matriz2){
-    var matrizFinal = new Array();    
+    var matrizFinal = new Array();
+        
     for(var x = 0; x < matriz1.length; x++){                
         matrizFinal[x] = new Array();
         for(z = 0; z < matriz2[0].length; z++){
@@ -30,7 +36,7 @@ function multiplicar(matriz1, matriz2){
             for(y = 0; y < matriz1[0].length; y++){
                 if(!isNaN(matriz1[x][y]) && !isNaN(matriz2[y][z])){
                 v += matriz1[x][y]*matriz2[y][z];   
-                v = Math.abs(v)%43;            
+                v = Math.abs(v)%27;            
                 }
             }            
             matrizFinal[x][z] = v;
@@ -43,9 +49,9 @@ function multiplicar(matriz1, matriz2){
 
 function transponer(matriz){
     var matrizFinal = new Array();
-    for(var x = 0; x < matriz.length; x++){
+    for(var x = 0; x < matriz[0].length; x++){
         matrizFinal[x] = new Array();
-        for(var y = 0; y < matriz[x].length; y++){
+        for(var y = 0; y < matriz.length; y++){
             matrizFinal[x][y] = matriz[y][x];
         }
     }
@@ -128,7 +134,7 @@ function adjunta(matriz){
 function inversa(matriz){
     var det = Math.abs(determinante(matriz));
     var x = 1;
-    while((det*x-1)%43 != 0){
+    while((det*x-1)%27 != 0){
         x++;
     }
     console.log(x);
@@ -137,7 +143,7 @@ function inversa(matriz){
     for(var i = 0; i < matriz.length; i++){        
         mInversa[i] = new Array();
         for(var j = 0; j < matriz[i].length; j++){
-           mInversa[i][j] = mAdjunta[i][j]*x;
+           mInversa[i][j] = (mAdjunta[i][j]*x)%27;
         }   
     }
     return mInversa;

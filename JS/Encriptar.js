@@ -6,7 +6,7 @@ var mensaje;
 var textoLlave;
 var valores = new Array(4);
 var llave = new Array();
-const listado = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ.,ÁÉÍÓÚ 123456789";
+const listado = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
 boton.addEventListener("click", () => {    
     textoLlave = contenedorLlave.value.split(",");
     for(var x = 0; x < textoLlave.length; x++){
@@ -25,8 +25,8 @@ boton.addEventListener("click", () => {
                 mensaje += "-";
             }             */
             mensaje = mensaje.toUpperCase();
-            columnas = mensaje.length/llave.length;
-            filas = llave.length;
+            filas = mensaje.length/llave.length;
+            columnas = llave.length;
             var contador = 0;
             for(var i = 0; i < filas; i++){
                 valores[i] = new Array();
@@ -51,7 +51,8 @@ boton.addEventListener("click", () => {
 });
 
 function mostrarEncriptado(k, v){
-    var mE = multiplicar(k, v);
+    var mE = encriptar(k, v);    
+    mE = transponer(mE);
     var text = "";
     for(var i = 0; i < mE.length; i++){
         for(var j = 0; j < mE[i].length; j++){
