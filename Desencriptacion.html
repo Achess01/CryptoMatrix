@@ -3,11 +3,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-        <title> CryptoMatrix </title>
+        <title> Desencriptacion </title>
 
         <link rel="icon" type="image/png" href=https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Friosuerte.files.wordpress.com%2F2013%2F03%2Flogo-usac-lents.png&f=1&nofb=1> 
 
-        <link rel="stylesheet" type="text/css" href="CSS/Estilo_Encriptacion.css"/>
+        <link rel="stylesheet" type="text/css" href="CSS/Estilo_Desencriptacion.css"/>
     </head>
 
     <body>
@@ -34,10 +34,28 @@
         </header>
 
         <section class="main">
-                <!-- Trabaja aca la desencriptacion-->
-                <div = Encriptacion>
+                <!-- Seccion desencriptacion-->                                    
+                <div class ="Desencriptacion">
+                	
+                	<div class="Mensaje" id="Mensaje">
+
+                     	<label for="Mensaje"> Inserte el mensaje </label>
+                	
+                	</div>
                     
-                </div>
+                    <textarea name="Mensaje" class="MensajeCajon" id="Mensaje" cols="30" rows="10"></textarea>
+                    
+                    <div class="Llave">
+                    
+                    	<label for="Llave">Inserte la llave</label>
+
+                    </div>
+                    
+                    <textarea name="Llave" class="LlaveCajon" id="Llave" cols="30" rows="10"></textarea>
+                    
+                	<button class="Botoncito" id="Botoncito"> Listo </button>
+                    <div id="Mensaje_desencriptado"></div> 
+                </div>                
                 <!-- Fin Seccion Principal -->
         </section>
 
@@ -46,5 +64,7 @@
                 <h4> Division de Ciencias de Ingeniería </h4>
             </div>
         </footer>
+        <script src="JS/Desencriptar.js"></script>
+        <script src="JS/OperacionesDeMatrices.js"></script>
     </body>
 </html>

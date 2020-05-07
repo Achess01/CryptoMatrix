@@ -5,7 +5,7 @@
 
         <link rel="icon" type="image/png" href=https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Friosuerte.files.wordpress.com%2F2013%2F03%2Flogo-usac-lents.png&f=1&nofb=1>
 
-        <title> CryptoMatrix </title>
+        <title> Encriptacion </title>
 
         <link rel="stylesheet" type="text/css" href="CSS/Estilo_Encriptacion.css"/>
     </head>
@@ -38,13 +38,13 @@
     			<!-- Seccion encriptacion -->
                 <div class="Encriptacion">
                     
-                    <div class="Mensaje">
+                    <div class="Mensaje" id="Encriptacion">
                     
                         <label for="Mensaje"> Inserte el mensaje </label>
                     
                     </div>
                     
-                    <textarea name="Mensaje" class="MensajeCajon" cols="30" rows="10"></textarea>
+                    <textarea name="Mensaje" id="Mensaje" class="MensajeCajon" cols="30" rows="10"></textarea>
                     
                     <div class="Llave">
 
@@ -52,10 +52,11 @@
                     
                     </div>
                         
-                        <textarea name="Llave" class="LlaveCajon" cols="30" rows="10"></textarea>
+                        <textarea name="Llave" id="Llave" class="LlaveCajon" cols="30" rows="10"></textarea>
                     
                     
                     <button class="Botoncito"> Listo </button>
+                    <div id="Mensaje_encriptado"></div>
                 </div>
     			<!-- Fin seccion Principal-->
     	</section>

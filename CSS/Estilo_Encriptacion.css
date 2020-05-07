@@ -40,14 +40,6 @@
 	}
 
 	body header .title{
-		
-		width: 100px
-		height: 100px;
-		font-size: 30px;
-
-	}
-
-	body header .title{
 		width: 100px
 		height: 100px;
 		font-size: 30px;
@@ -102,13 +94,6 @@
 		left: 60%;
 	}
 
-	.main .Encriptacion .Botoncito{
-		position: absolute;
-		top: 90%;
-		bottom: ;
-		left: 43.6%;
-		right: ;
-	}
 
 
 /* Seccion Footer */
@@ -120,3 +105,12 @@
 		padding: 10px 0px;
 		text-align: center;
 	}
+
+	.main .Encriptacion .Botoncito{
+		position: absolute;
+		top: 90%;
+		bottom: ;
+		left: 43.6%;
+		right: ;
+		width: 10%;
+	}	
